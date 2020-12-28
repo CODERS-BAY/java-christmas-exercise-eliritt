@@ -23,15 +23,15 @@ Bitte versuche als Übung alles in Markdown zu beantworten. Hier ist ein [Cheats
  * Klassen (z.B. main), Methoden und Variablen können static sein.
  
 6. Wozu dient die Vererbung?
-  * Durch die Vererbung können Klassen hierarchisch angeordnet werden und so die Menge an redundantem Code reduziert werden.
+  * Durch die Vererbung können Klassen hierarchisch angeordnet und so die Menge an redundantem Code reduziert werden.
   
 7. Kann in Java von mehreren Klassen geerbt werden? Wenn ja wie?
- * In Java wurde nur die Einfachvererbung implementiert. Mithilfe der Interfaces wurde eine restriktive Art der Mehrfachvererbung geschaffen.
+ * In Java wurde nur die Einfachvererbung implementiert. Mithilfe der `Interfaces` wurde eine restriktive Art der Mehrfachvererbung geschaffen.
  
 8. Welche Vererbungshierarchien kennst du? (Ein Bild reicht aus)
-  * Single Inheritance (eine Subklasse erbt von einer Oberklasse, z.B. B erweitert A)
+  * Single Inheritance (eine Subklasse erbt von einer Superklasse, z.B. B erweitert A)
   * Multi Level Inheritance (es gibt mehrere Ebenen an Subklassen, z.B. B erweitert A, C erweitert B, ...)
-  * Hierarchical Inheritance (mehrere Subklassen erben von einer Oberklasse, z.B. B erweitert A, C erweitert A)
+  * Hierarchical Inheritance (mehrere Subklassen erben von einer Superklasse, z.B. B erweitert A, C erweitert A)
   
 9. Was beudeted Casten und wie ist die Syntax in Java dafür?
   * Type Casting bezeichnet die Umwandlung eines Datentyps in einen anderen Datentyp.
@@ -52,6 +52,7 @@ Bitte versuche als Übung alles in Markdown zu beantworten. Hier ist ein [Cheats
  
 12. Für was dient der `instanceof` Operator. Gib ein sinnvolles Beispiel.
  * Der instanceof-Operator beantwortet die Frage, ob ein Objekt eine Instanz einer bestimmten Klasse ist.
+ * Beispiel: Beim Vergleich von Objekten ist es sinnvoll, zuerst einen instanceof-Abgleich zu machen.
  
  ---
  Eclipse bietet auch Markdown unterstützung inklusive Preview. Für die Verwendung muss kein Plugin installiert werden.
