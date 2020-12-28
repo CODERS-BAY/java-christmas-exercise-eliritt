@@ -14,7 +14,7 @@ Bitte versuche als Übung alles in Markdown zu beantworten. Hier ist ein [Cheats
  * Eine Klasse ist der Bauplan für ein Objekt.
  
 4. Wie erzeuge ich eine neue Instanz? (Welches Schlüsselwort gibt es dafür)
- * Mit new() >> Speicherplatz, der das Objekt aufnimmt, wird belegt
+ * Mit new() >> dadurch wird Speicherplatz reserviert, der dann das Objekt aufnimmt.
  
 5. Was bedeutet das Schlüsselwort `static` und wo kann es überall verwendet werden?
   * Statische Programmelemente können verwendet werden, ohne vorher ein Objekt zu erzeugen.
