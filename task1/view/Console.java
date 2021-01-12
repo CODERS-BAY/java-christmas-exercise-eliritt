@@ -130,6 +130,7 @@ public class Console {
 		
 		System.out.println("");
 		System.out.println("Thank you for choosing Santa Inc. for making your wish! We're at your service 24/7/365!");
+		System.out.println("");
 		System.out.println("We wish you a Merry Christmas! Bye bye!");
 		System.out.println("");
 		System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
