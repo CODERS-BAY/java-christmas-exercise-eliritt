@@ -8,19 +8,12 @@ import model.Santa;
 
 import java.util.Scanner;
 
-public class Console {
-	
-	public static final int size = 50;
+import controller.ChildUtil;
+import controller.ElfUtil;
+import controller.PresentsUtil;
+import controller.SantaUtil;
 
-	public static Child[] children = new Child[size];
-	
-	public static Presents[] stock = new Presents[size];
-	
-	public static Presents[] sledge = new Presents[size];
-	
-	public int childrenIndex = 0;
-	
-	public int stockIndex = 0;
+public class Console {
 	
 	public void dialog() {
 	
@@ -30,14 +23,14 @@ public class Console {
 			System.out.println("Please login:");
 			System.out.println("Press S for Santa, E for Elf and any other key for Child.");
 			Scanner myScanner = new Scanner(System.in);
-			String input1 = myScanner.nextLine();
+			String role = myScanner.nextLine();
 	
-			if(input1.equalsIgnoreCase("S") ) {
+			if(role.equalsIgnoreCase("S") ) {
 				System.out.println("Hello! Please enter your super-secret Santa password here:");
-				String input2 = myScanner.nextLine();
-				int santaPassword = Integer.parseInt(input2);
+				String santaInput1 = myScanner.nextLine();
+				int santaPassword = Integer.parseInt(santaInput1);
 			
-				if(santaPassword == 12345) {
+				if(santaPassword == Santa.getSantaPassword()) {
 					System.out.println("Ho Ho Ho Santa! Let's get to work!");
 					
 					boolean working = true;
@@ -45,22 +38,22 @@ public class Console {
 					while(working) {
 					System.out.println("What would you like to do? Press C for a list of the Children, press S for looking at the Sledge and P for looking at the Presents.");
 			
-					String input3 = myScanner.nextLine();
+					String santaInput2 = myScanner.nextLine();
 			
-					switch(input3.toLowerCase()) {
-						case "c": Santa.generateWishList();
+					switch(santaInput2.toLowerCase()) {
+						case "c": SantaUtil.generateWishList();
 								break;
-						case "s": //TODO Insert Method here
+						case "s": SantaUtil.viewSledge();
 								break;
-						case "p": Santa.viewPresents();
+						case "p": SantaUtil.viewPresents();
 								break;
 						default: System.out.println("Please try again and select a valid character!");
 					}
 					
 					System.out.println("Would you like to Continue (C) or exit (X)?");
-					String input4 = myScanner.nextLine();
+					String santaInput3 = myScanner.nextLine();
 					
-					if(input4.equalsIgnoreCase("X")) {
+					if(santaInput3.equalsIgnoreCase("X")) {
 						working = false;
 						System.out.println("");
 						System.out.println("Bye Bye, Santa! See you soon!");
@@ -70,81 +63,72 @@ public class Console {
 					}
 					}
 			
-		} else {
-			System.out.println("Sorry, this is the wrong password. Please start again.");
-		}
+					} else {
+					System.out.println("This is the wrong password. Please start again.");
+					}
 		
-	} else if(input1.equalsIgnoreCase("E") ) {
-		System.out.println("Hello Random Elf! Please enter your name:");
-		String inputElfName = myScanner.nextLine();
+				} else if(role.equalsIgnoreCase("E") ) {
+					System.out.println("Hello Random Elf! Please enter your name:");
+					String elfInputName = myScanner.nextLine();
 		
-		System.out.println("Ho Ho Ho " + inputElfName + "! Let's get to work!");
+					System.out.println("Ho Ho Ho " + elfInputName + "! Let's get to work!");
 		
-		boolean doing = true;
+					boolean doing = true;
 		
-		while(doing) {
-		System.out.println("What would you like to do? Press L for Loading the Sledge, S for Sorting the presents on the Sledge and X for Letting it snow!");
-		String inputElfChoice = myScanner.nextLine();
+					while(doing) {
+						System.out.println("What would you like to do? Press L for Loading the Sledge, S for Sorting the presents on the Sledge and X for Letting it snow!");
+						String elfInputChoice = myScanner.nextLine();
 		
-		switch(inputElfChoice.toLowerCase()) {
-		case "l": //TODO Insert Method here
-					break;
-		case "s": //TODO Insert Method here
-					break;
-		case "x": //TODO Insert Method here
-					break;
-		default: System.out.println("Please try again and select a valid character!");
-		}
+						switch(elfInputChoice.toLowerCase()) {
+							case "l": ElfUtil.ElfLoading();
+									break;
+							case "s": ElfUtil.ElfSorting();
+									break;
+							case "x": ElfUtil.ElfSnowing();
+								break;
+							default: System.out.println("Please try again and select a valid character!");
+							}
 		
-		System.out.println("Would you like to Continue (C) or exit (X)?");
-		String input5 = myScanner.nextLine();
+						System.out.println("Would you like to Continue (C) or exit (X)?");
+						String elfInputContinue = myScanner.nextLine();
 		
-		if(input5.equalsIgnoreCase("X")) {
-			doing = false;
-			System.out.println("");
-			System.out.println("Bye Bye, " + inputElfName + "! See you soon!");
-			System.out.println("");
-			System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
-			System.out.println("");
-		}
-		}
+						if(elfInputContinue.equalsIgnoreCase("X")) {
+							doing = false;
+							System.out.println("");
+							System.out.println("Bye Bye, " + elfInputName + "! See you soon!");
+							System.out.println("");
+							System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+							System.out.println("");
+							}
+						}
 		
-	} else {
-		System.out.println("Hello Random Child! You want to make your wish? Please enter your name:");
-		String inputChildName = myScanner.nextLine();
+				} else {
+					System.out.println("Hello Random Child! You want to make your wish? Please enter your name:");
+					String childInputName = myScanner.nextLine();
 		
-		System.out.println("Enter your age:");
-		int inputChildAge = Integer.parseInt(myScanner.nextLine());
+					System.out.println("Enter your age:");
+					int childInputAge = Integer.parseInt(myScanner.nextLine());
 		
-		System.out.println("Enter your city:");
-		String inputChildCity = myScanner.nextLine();
+					System.out.println("Enter your city:");
+					String childInputCity = myScanner.nextLine();
 		
-		System.out.println("Make your wish! Enter anything you wish for Christmas! But remember: Only one wish per child!");
-		String inputChildWish = myScanner.nextLine();
+					System.out.println("Make your wish! Enter anything you wish for Christmas! But remember: Only one wish per child!");
+					String childInputWish = myScanner.nextLine();
 		
-		Presents wish = new Presents (inputChildWish, inputChildCity);
-		toStockArray(wish);
+					Presents wish = new Presents (childInputWish, childInputCity);
+					PresentsUtil.toStockArray(wish);
 				
-		Child child = new Child(inputChildName, inputChildAge, inputChildCity, wish);
-		toChildrenArray(child);
+					Child child = new Child(childInputName, childInputAge, childInputCity, wish);
+					ChildUtil.toChildrenArray(child);
 		
-		System.out.println("");
-		System.out.println("Thank you for choosing Santa Inc. for making your wish! We're at your service 24/7/365!");
-		System.out.println("");
-		System.out.println("We wish you a Merry Christmas! Bye bye!");
-		System.out.println("");
-		System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println("");
+					System.out.println("");
+					System.out.println("Thank you for choosing Santa Inc. for making your wish! We're at your service 24/7/365!");
+					System.out.println("");
+					System.out.println("We wish you a Merry Christmas! Bye bye!");
+					System.out.println("");
+					System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+					System.out.println("");
+					}
+				}
 	}
-}
-}
-
-	void toChildrenArray(Child child) {
-		children[childrenIndex++] = child;
-	}
-	
-	void toStockArray(Presents wish) {
-		stock[stockIndex++] = wish;
-	}	
-}
-		
+}		

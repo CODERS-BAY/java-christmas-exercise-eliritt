@@ -1,9 +1,10 @@
 package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
 // Sledge = Schlitten
 public class Sledge {
 
-	public Sledge() {
-		// TODO Auto-generated constructor stub
-	}
-
+		public static List <Presents> sledge = new ArrayList<>();
 }

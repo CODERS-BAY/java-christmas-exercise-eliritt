@@ -1,12 +1,27 @@
 package controller;
 
+import model.Presents;
+import model.Sledge;
+
 public class ElfUtil {
 
-	public ElfUtil() {
-		// TODO Auto-generated constructor stub
+	public static void ElfLoading() {
+		Sledge.sledge = Presents.stock;
 	}
 
-	/*
-	 * sledge should be prepared here
-	 */
+	public static void ElfSorting() {
+		//TODO Insert Method!
+	}
+	
+	public static void ElfSnowing() {
+		System.out.println("");
+		System.out.println("*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  * ");
+		System.out.println("");
+		System.out.println(" *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *");
+		System.out.println("");
+		System.out.println("*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  * ");
+		System.out.println("");
+		System.out.println(" *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *");
+		System.out.println("");
+	}
 }
